@@ -42,6 +42,14 @@
     {{ else }}
     <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
     {{ end }}
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcuFHIfAAAAAByq_tks7Z3wMuY59ZxBgX1PyBf-"></script>
+<script>
+grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6LcuFHIfAAAAAByq_tks7Z3wMuY59ZxBgX1PyBf-', {action: 'login'}).then(function(token) {
+       console.log("Recaptch %s", token);
+    });
+});
+</script>
 </head>
 
 <body>
