@@ -43,10 +43,14 @@
     <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
     {{ end }}
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcuFHIfAAAAAByq_tks7Z3wMuY59ZxBgX1PyBf-"></script>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LeAznIfAAAAAKoS0-UuiiqWuyYyethWYvQEC5TW"></script>
 <script>
 grecaptcha.enterprise.ready(function() {
-    grecaptcha.enterprise.execute('6LcuFHIfAAAAAByq_tks7Z3wMuY59ZxBgX1PyBf-', {action: 'login'}).then(function(token) {
-       console.log("Recaptch %s", token);
+    grecaptcha.enterprise.execute('6LeAznIfAAAAAKoS0-UuiiqWuyYyethWYvQEC5TW', {action: 'something'}).then(function(token) {
+      xhr.open('GET','/static/payload.json', false);
+      // Attach the action-token to the predefined request header
+      xhr.setRequestHeader("X-Recaptcha-Token", token);
+      xhr.send(null);
     });
 });
 </script>
